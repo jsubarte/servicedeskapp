@@ -1,0 +1,11 @@
+node_modules/
+postgresdb/
+dist/
+.git/
+.gitignore
+Dockerfile
+docker-compose.yml
+.dockerignore
+package-lock.json
+README.md
+TESTBACKEND.postman_collection.json
