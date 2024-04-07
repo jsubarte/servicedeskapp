@@ -1,7 +1,7 @@
 {
   "name": "servicedeskapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicación de servicios tecnicos, cuenta con funcionalidad de registro y login de usuarios y administracion de tickets. La aplicación esta desarrollada con Nodejs 18.16.1, PostgreSQL 14.7.1 y npm 9.5.1.",
   "main": "./app.ts",
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
     "build": "tsc"
   },
   "keywords": [],
-  "author": "Joel Ubarte",
+  "author": "Joel Sánchez",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -31,7 +31,7 @@
     "@types/express": "^4.17.21",
     "@types/express-fileupload": "^1.5.0",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/node": "^20.12.4",
+    "@types/node": "^20.12.5",
     "@types/uuid": "^9.0.8",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2",

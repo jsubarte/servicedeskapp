@@ -1,7 +1,8 @@
-import express from 'express'
+import express, { Application } from 'express'
 import cors from 'cors'
 import { rtrUsuario, rtrTicket, rtrTicketComment } from '../routes'
 import fileUpload from 'express-fileupload'
+import { testConnection } from '../database/config'
 
 interface Routes {
     usuarios: string
@@ -10,7 +11,7 @@ interface Routes {
 }
 
 class Server{
-    app: any
+    app: Application
     port: string
     paths: Routes
     
@@ -58,6 +59,7 @@ class Server{
         this.app.listen(this.port, () => {
             try {
                 console.log(`Aplicacion ejecutandose en puerto ${this.port}`)
+                testConnection()
             } catch (error) {
                 console.log(`Error listen: ${error}`)
             }

@@ -1,5 +1,4 @@
 import { Sequelize } from 'sequelize'
-import 'dotenv/config'
 
 const dbConnection: Sequelize = new Sequelize(
     {
@@ -13,6 +12,16 @@ const dbConnection: Sequelize = new Sequelize(
     }
 )
 
+const testConnection = async () => {
+    try {
+        await dbConnection.authenticate()
+        console.log(`Conexion a la base de datos establecida con exito`)
+    } catch (error) {
+        console.log(`Imposible conectar con la base de datos. Error: ${error}`)
+    }
+}
+
 export {
-    dbConnection
+    dbConnection,
+    testConnection
 }
