@@ -12,12 +12,14 @@ interface Routes {
 
 class Server{
     app: Application
-    port: string
+    host: string
+    port: number
     paths: Routes
     
     constructor(){
         this.app = express()
-        this.port = process.env.PORT || '3001'
+        this.host = process.env.HOST || 'DESKTOP-4A3F1KT'
+        this.port = parseInt(process.env.PORT || '3001')
         this.paths = {
             usuarios: '/api/usuarios',
             tickets: '/api/tickets',
@@ -56,9 +58,9 @@ class Server{
     }
 
     listen(){
-        this.app.listen(this.port, () => {
+        this.app.listen(this.port, this.host, () => {
             try {
-                console.log(`Aplicacion ejecutandose en puerto ${this.port}`)
+                console.log(`Aplicacion ejecutandose en ${ this.host } en el puerto ${ this.port }`)
                 testConnection()
             } catch (error) {
                 console.log(`Error listen: ${error}`)
