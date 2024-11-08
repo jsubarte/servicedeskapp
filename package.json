@@ -7,7 +7,7 @@
   "scripts": {
     "start": "ts-node app.ts",
     "dev": "nodemon --exec node --no-warnings --loader ts-node/esm app.ts",
-    "docker": "docker-compose up -d && timeout 60 && docker cp TestBackend_backup.sql testbackend_db:/docker-entrypoint-initdb.d && docker exec testbackend_db pg_restore -U postgres -d testbackend /docker-entrypoint-initdb.d/TestBackend_backup.sql",
+    "docker": "docker-compose up -d && timeout 60 && docker cp TestBackend_backup.sql db:/docker-entrypoint-initdb.d && docker exec db pg_restore -U postgres -d testbackend /docker-entrypoint-initdb.d/TestBackend_backup.sql",
     "build": "tsc"
   },
   "keywords": [],

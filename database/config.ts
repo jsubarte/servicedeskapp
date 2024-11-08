@@ -19,6 +19,7 @@ const testConnection = async () => {
         console.log(`Conexion a la base de datos ${ process.env.DB_NAME } establecida con exito`)
     } catch (error) {
         console.log(`Imposible conectar con la base de datos. Error: ${error}`)
+        throw new Error()
     }
 }
 
