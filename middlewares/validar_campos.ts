@@ -1,9 +1,12 @@
 import { validationResult } from 'express-validator'
-import { Request, Response, NextFunction } from 'express'
+import { Request, Response, NextFunction, RequestHandler } from 'express'
 
-const validarCampos = ( req: Request, res: Response, next: NextFunction ) => {
+const validarCampos: RequestHandler = ( req: Request, res: Response, next: NextFunction ) => {
     const errors = validationResult(req)
-    if( !errors.isEmpty() ) return res.status(400).json(errors)
+    if( !errors.isEmpty() ){ 
+        res.status(400).json({ success: false, message: 'Bad Request', errors: errors.array() }) 
+        return
+    }
     next()
 }
 
